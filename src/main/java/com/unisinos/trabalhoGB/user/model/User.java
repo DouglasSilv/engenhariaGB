@@ -1,6 +1,6 @@
 package com.unisinos.trabalhoGB.user.model;
 
-import com.unisinos.trabalhoGB.person.model.Person;
+import com.unisinos.trabalhoGB.common.model.Person;
 
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;

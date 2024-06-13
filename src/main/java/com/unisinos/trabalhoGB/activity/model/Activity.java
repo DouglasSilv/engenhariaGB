@@ -1,9 +1,9 @@
-package com.unisinos.trabalhoGB.visit.model;
+package com.unisinos.trabalhoGB.activity.model;
 
 import java.util.Date;
 
-import com.unisinos.trabalhoGB.common.model.Person;
 import com.unisinos.trabalhoGB.elderly.model.Elderly;
+import com.unisinos.trabalhoGB.nurse.model.Nurse;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
@@ -13,19 +13,20 @@ import lombok.Data;
 
 @Data
 @Entity
-public class Visit {
+public class Activity {
 
 	@Id
 	private String id;
+	private String name;
 	private String description;
 	private Date date;
-	private boolean aproved;
+	private boolean finished;
 	
 	@ManyToOne
     @JoinColumn(name="elderly_id")
 	private Elderly elderly;
 	
 	@ManyToOne
-    @JoinColumn(name="responsable_id")
-	private Person responsable;
+    @JoinColumn(name="nurse_id")
+	private Nurse nurse;
 }

@@ -1,4 +1,4 @@
-package com.unisinos.trabalhoGB.person.model;
+package com.unisinos.trabalhoGB.common.model;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
