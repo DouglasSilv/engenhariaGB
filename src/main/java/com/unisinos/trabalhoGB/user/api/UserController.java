@@ -20,8 +20,13 @@ public class UserController {
 		return "ping";
 	}
 
-	@PostMapping
-	public void createUser() {
-		service.createUser();
+	@PostMapping("/elderly")
+	public void createElderly() {
+		service.createElderlyUser();
+	}
+
+	@PostMapping("/nurse")
+	public void createNurse() {
+		service.createNurseUser();
 	}
 }

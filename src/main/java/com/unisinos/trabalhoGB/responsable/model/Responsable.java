@@ -2,7 +2,6 @@ package com.unisinos.trabalhoGB.responsable.model;
 
 import java.util.Set;
 
-import com.unisinos.trabalhoGB.activity.model.Activity;
 import com.unisinos.trabalhoGB.common.model.Person;
 import com.unisinos.trabalhoGB.visit.model.Visit;
 

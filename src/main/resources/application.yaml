@@ -3,6 +3,6 @@ spring:
     name: engenhariaGB
   datasource:
     driver-class-name: org.postgresql.Driver
-    url: jdbc:postgresql://localhost:5432/engenharia-gb
-    username: postgres
-    password: totvs@123
+    url: jdbc:postgresql://deeply-trusty-piglet.a1.pgedge.io/engenhariagb
+    username: admin
+    password: lT6098iRkd1q6S70F0IgdCQ7

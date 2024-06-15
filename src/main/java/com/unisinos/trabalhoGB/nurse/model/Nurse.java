@@ -8,8 +8,10 @@ import com.unisinos.trabalhoGB.common.model.Person;
 import jakarta.persistence.DiscriminatorValue;
 import jakarta.persistence.Entity;
 import jakarta.persistence.OneToMany;
+import lombok.Getter;
 
 @Entity
+@Getter
 @DiscriminatorValue("NURSE")
 public class Nurse extends Person {
 
