@@ -1,0 +1,2 @@
+ALTER TABLE visit
+ADD COLUMN reproved_at TIMESTAMP

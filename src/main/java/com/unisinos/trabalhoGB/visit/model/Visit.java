@@ -20,6 +20,7 @@ public class Visit {
 	private String description;
 	private Date date;
 	private boolean aproved;
+	private Date reprovedAt;
 	
 	@ManyToOne
     @JoinColumn(name="elderly_id")

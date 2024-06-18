@@ -1,21 +1,41 @@
 package com.unisinos.trabalhoGB.visit.api;
 
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import com.unisinos.trabalhoGB.visit.dto.CreateVisitDTO;
+import com.unisinos.trabalhoGB.visit.dto.FindVisitDTO;
+import org.springframework.web.bind.annotation.*;
 
 import com.unisinos.trabalhoGB.visit.service.VisitService;
+
+import java.util.List;
 
 @RestController
 @RequestMapping("/visit")
 public class VisitController {
 
-	@Autowired
-	private VisitService service;
-	
-	@PostMapping
-	public void createVisit() {
-		service.createVisit();
+	private final VisitService service;
+
+    public VisitController(VisitService service) {
+        this.service = service;
+    }
+
+    @PostMapping
+	public void createVisit(@RequestBody CreateVisitDTO dto) {
+		service.createVisit(dto);
 	}
+
+    @PostMapping("/{visitId}/approve")
+    public void approve(@PathVariable String visitId) {
+        service.approve(visitId);
+    }
+
+    @PostMapping("/{visitId}/reprove")
+    public void reprove(@PathVariable String visitId) {
+        service.reprove(visitId);
+    }
+
+    @GetMapping("/waiting-approval")
+    public List<FindVisitDTO> findAllWaitingApproval() {
+        return service.findAllWaitingApproval();
+    }
+
 }

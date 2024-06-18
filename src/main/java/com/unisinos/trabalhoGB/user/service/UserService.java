@@ -4,6 +4,7 @@ import java.util.UUID;
 
 import com.github.javafaker.Faker;
 import com.unisinos.trabalhoGB.nurse.model.Nurse;
+import com.unisinos.trabalhoGB.responsable.model.Responsable;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -46,6 +47,26 @@ public class UserService {
 		user.setUsername(name.username());
 
 		final var person = new Nurse();
+		person.setAddress(faker.address().fullAddress());
+		person.setAge(faker.number().numberBetween(18, 60));
+		person.setGender('F');
+		person.setId(UUID.randomUUID().toString());
+		person.setName(name.name());
+
+		user.setPerson(person);
+
+		this.repository.save(user);
+	}
+
+	public void createResponsableUser() {
+		final var faker = new Faker();
+		final var name = faker.name();
+		final var user = new User();
+		user.setId(UUID.randomUUID().toString());
+		user.setPassword("senha123");
+		user.setUsername(name.username());
+
+		final var person = new Responsable();
 		person.setAddress(faker.address().fullAddress());
 		person.setAge(faker.number().numberBetween(18, 60));
 		person.setGender('F');

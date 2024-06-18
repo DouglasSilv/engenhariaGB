@@ -29,4 +29,9 @@ public class UserController {
 	public void createNurse() {
 		service.createNurseUser();
 	}
+
+	@PostMapping("/responsable")
+	public void createResponsable() {
+		service.createResponsableUser();
+	}
 }
