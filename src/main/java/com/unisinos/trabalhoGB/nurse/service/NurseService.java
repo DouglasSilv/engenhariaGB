@@ -22,8 +22,13 @@ public class NurseService {
         return repository.findById(id).orElseThrow();
     }
 
-    public Set<ActivityDTO> getActivitiesByNurse(String nurseId) {
-        return repository.findById(nurseId).orElseThrow().getActivities().stream().map(ActivityMap::map).collect(Collectors.toSet());
+    public Set<ActivityDTO> getActivitiesByNurse(String nurseId, String elderlyId) {
+        return repository.findById(nurseId).orElseThrow()
+                .getActivities()
+                .stream()
+                .filter(activity -> activity.getElderly().getId().equals(elderlyId))
+                .map(ActivityMap::map)
+                .collect(Collectors.toSet());
     }
 
 

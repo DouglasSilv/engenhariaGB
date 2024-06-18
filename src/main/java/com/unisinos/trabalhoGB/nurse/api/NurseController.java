@@ -2,10 +2,7 @@ package com.unisinos.trabalhoGB.nurse.api;
 
 import com.unisinos.trabalhoGB.common.dto.ActivityDTO;
 import com.unisinos.trabalhoGB.nurse.service.NurseService;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.Set;
 
@@ -20,8 +17,8 @@ public class NurseController {
     }
 
     @GetMapping("/{nurseId}/activities")
-	public Set<ActivityDTO> getActivitiesByNurse(@PathVariable String nurseId) {
-		return service.getActivitiesByNurse(nurseId);
+	public Set<ActivityDTO> getActivitiesByNurse(@PathVariable String nurseId, @RequestParam String elderlyId) {
+		return service.getActivitiesByNurse(nurseId, elderlyId);
 	}
 
 }
