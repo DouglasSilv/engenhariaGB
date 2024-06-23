@@ -32,9 +32,9 @@ public class ActivityController {
 		return service.patch(activity);
 	}
 
-	@PostMapping("/{activityId}/finish")
-	public void finishActivity(@PathVariable String activityId) {
-		service.finishActivity(activityId);
+	@PostMapping("/{activityId}/change-status")
+	public void changeStatus(@PathVariable String activityId, @RequestParam boolean isFinished) {
+		service.changeStatus(activityId, isFinished);
 	}
 
 }

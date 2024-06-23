@@ -62,9 +62,9 @@ public class ActivityService {
         return map(repository.save(activityToUpdate));
     }
 
-    public void finishActivity(String activityId) {
+    public void changeStatus(String activityId, boolean isFinished) {
         final var activityToUpdate = repository.findById(activityId).orElseThrow();
-        activityToUpdate.setFinished(true);
+        activityToUpdate.setFinished(isFinished);
         repository.save(activityToUpdate);
     }
 
