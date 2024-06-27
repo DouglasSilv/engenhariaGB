@@ -13,6 +13,8 @@ import org.springframework.stereotype.Service;
 import com.unisinos.trabalhoGB.visit.model.Visit;
 import com.unisinos.trabalhoGB.visit.model.VisitRepository;
 
+import static java.util.Objects.isNull;
+
 @Service
 public class VisitService {
 
@@ -25,6 +27,13 @@ public class VisitService {
         this.elderlyService = elderlyService;
         this.responsableService = responsableService;
     }
+
+	public List<FindVisitDTO> findAll(String elderlyId, String responsableId) {
+		return repository.findAll()
+				.stream().filter(item -> (isNull(elderlyId) || elderlyId.equals(item.getElderly().getId())) && (isNull(responsableId) || responsableId.equals(item.getResponsable().getId())))
+				.map(this::mapToDto)
+				.toList();
+	}
 
     public void createVisit(CreateVisitDTO dto) {
 		Visit visit = new Visit();

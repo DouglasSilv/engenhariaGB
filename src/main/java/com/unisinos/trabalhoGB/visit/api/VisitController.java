@@ -18,6 +18,14 @@ public class VisitController {
         this.service = service;
     }
 
+    @GetMapping
+    public List<FindVisitDTO> findAll(
+            @RequestParam(required = false) String elderlyId,
+            @RequestParam(required = false) String responsableId
+    ) {
+        return service.findAll(elderlyId, responsableId);
+    }
+
     @PostMapping
 	public void createVisit(@RequestBody CreateVisitDTO dto) {
 		service.createVisit(dto);
