@@ -30,7 +30,12 @@ public class VisitService {
 
 	public List<FindVisitDTO> findAll(String elderlyId, String responsableId) {
 		return repository.findAll()
-				.stream().filter(item -> (isNull(elderlyId) || elderlyId.equals(item.getElderly().getId())) && (isNull(responsableId) || responsableId.equals(item.getResponsable().getId())))
+				.stream()
+				.filter(item ->
+						(isNull(elderlyId) || elderlyId.equals(item.getElderly().getId()))
+						&& (isNull(responsableId) || responsableId.equals(item.getResponsable().getId()))
+						&& item.isAproved()
+				)
 				.map(this::mapToDto)
 				.toList();
 	}
